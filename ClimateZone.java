@@ -36,9 +36,9 @@ class ClimateZone {
     return cityList.size();
   }
 
-  public City getCityByName(String name) {
+  public City getCityByName(String cityName, String stateName) {
     for (City currentCity : cityList) {
-      if (currentCity.getName().equals(name)) {
+      if (currentCity.getName().equals(cityName) && currentCity.getState().equals(stateName)) {
         return currentCity;
       }
     }
