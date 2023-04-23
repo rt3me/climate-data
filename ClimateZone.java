@@ -75,7 +75,7 @@ class ClimateZone {
     double lowestTemp = 0;
 
     for (City currentCity : cityList) {
-      if (currentCity.getLowTemp() > lowestTemp) {
+      if (currentCity.getLowTemp() < lowestTemp) {
         firstBest = currentCity;
         lowestTemp = currentCity.getLowTemp();
       }
@@ -83,7 +83,7 @@ class ClimateZone {
 
     lowestTemp = 0;
     for (City currentCity : cityList) {
-      if ((currentCity.getLowTemp() > lowestTemp) && (currentCity != firstBest)) {
+      if ((currentCity.getLowTemp() < lowestTemp) && (currentCity != firstBest)) {
         nextBest = currentCity;
         lowestTemp = currentCity.getLowTemp();
       }
