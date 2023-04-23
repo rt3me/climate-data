@@ -37,6 +37,6 @@ class City {
   }
 
   public void printInfo() {
-    System.out.printf("%s, %s (High = %.2f, Low = %.2f)", this.name, this.state, this.highTemp, this.lowTemp);
+    System.out.printf("%s, %s (High = %.2f, Low = %.2f)\n", this.name, this.state, this.highTemp, this.lowTemp);
   }
 }
