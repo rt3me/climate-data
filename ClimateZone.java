@@ -31,4 +31,71 @@ class ClimateZone {
     City newCity = new City(name, state, highTemp, lowTemp);
     cityList.add(newCity);
   }
+
+  public int getCityCount() {
+    return cityList.size();
+  }
+
+  public City getCityByName(String name) {
+    for (City currentCity : cityList) {
+      if (currentCity.getName().equals(name)) {
+        return currentCity;
+      }
+    }
+    return null;
+  }
+
+  public void printHottestCities() {
+    City firstBest = null;
+    City nextBest = null;
+    double highestTemp = 0;
+
+    for (City currentCity : cityList) {
+      if (currentCity.getHighTemp() > highestTemp) {
+        firstBest = currentCity;
+        highestTemp = currentCity.getHighTemp();
+      }
+    }
+
+    highestTemp = 0;
+    for (City currentCity : cityList) {
+      if ((currentCity.getHighTemp() > highestTemp) && (currentCity != firstBest)) {
+        nextBest = currentCity;
+        highestTemp = currentCity.getHighTemp();
+      }
+    }
+
+    firstBest.printInfo();
+    nextBest.printInfo();
+  }
+
+  public void printColdestCities() {
+    City firstBest = null;
+    City nextBest = null;
+    double lowestTemp = 0;
+
+    for (City currentCity : cityList) {
+      if (currentCity.getLowTemp() > lowestTemp) {
+        firstBest = currentCity;
+        lowestTemp = currentCity.getLowTemp();
+      }
+    }
+
+    lowestTemp = 0;
+    for (City currentCity : cityList) {
+      if ((currentCity.getLowTemp() > lowestTemp) && (currentCity != firstBest)) {
+        nextBest = currentCity;
+        lowestTemp = currentCity.getLowTemp();
+      }
+    }
+
+    firstBest.printInfo();
+    nextBest.printInfo();
+  }
+
+  public void printAllCities() {
+    for (City currentCity : cityList) {
+      currentCity.printInfo();
+    }
+  }
 }
